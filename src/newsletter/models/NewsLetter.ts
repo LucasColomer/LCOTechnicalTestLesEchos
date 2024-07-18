@@ -4,7 +4,7 @@ export class NewsLetter {
     description!: string;
     title!: string;
     site!: string;
-    subscription!: [string];
+    subscriptions!: [string];
 
     constructor(initialize?: any) {
         if (!initialize) return;
@@ -13,6 +13,6 @@ export class NewsLetter {
         if (initialize.description) this.description = initialize.description;
         if (initialize.title) this.title = initialize.title;
         if (initialize.site) this.site = initialize.site;
-        if (initialize.subscription) this.subscription = initialize.subscription
+        if (initialize.subscriptions) this.subscriptions = initialize.subscriptions
     }
 }

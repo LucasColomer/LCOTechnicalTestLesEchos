@@ -1,6 +1,8 @@
 import { Card, CardBody, CardFooter, CardHeader, Heading, Text } from "@chakra-ui/react";
 import { NewsLetter } from "../models/NewsLetter";
 import SubscribeButton, { ButtonType } from "./SubscribeButton";
+import { useSelector } from "react-redux";
+import { RootState } from "../../store";
 
 interface NewsLetterCardProps {
     newsLetter: NewsLetter;
@@ -8,6 +10,8 @@ interface NewsLetterCardProps {
 
 function NewsLetterCard({newsLetter}: NewsLetterCardProps) {
     const image = 'url(' + newsLetter.image + ')';
+    const userSubscription = useSelector<RootState, string[]>(state => state.loggedUser.user.subscriptions);
+
     return (
         <Card variant={'unstyled'}>
             <CardHeader
@@ -28,7 +32,7 @@ function NewsLetterCard({newsLetter}: NewsLetterCardProps) {
                 </Text>
             </CardBody>
             <CardFooter justifyContent={'center'}>
-                <SubscribeButton type={ButtonType.subscribe} onClick={() => {}}/>
+                <SubscribeButton type={userSubscription.some(subscription => newsLetter.subscriptions.includes(subscription)) ? ButtonType.register : ButtonType.subscribe} onClick={() => {}}/>
             </CardFooter>
         </Card>
     );

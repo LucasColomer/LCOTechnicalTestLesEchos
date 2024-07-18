@@ -1,21 +1,10 @@
 import { Card, CardBody, CardHeader, Heading, Stack, Text } from "@chakra-ui/react";
 import NewsLetterList from "./components/NewsLetterList";
-import { NewsLetter } from "./models/NewsLetter";
+import { useSelector } from "react-redux";
+import { getNewsLettersBySite } from "./models/NewsLetterSlice";
 
-interface NewsLetterPageProps {
-    newsLetters: NewsLetter[];
-}
-
-function NewsLetterPage({newsLetters}: NewsLetterPageProps) {
-    function groupBySite(newsLetters: NewsLetter[]): Record<string, NewsLetter[]> {
-        return newsLetters.reduce((acc, newsLetter) => {
-            if (!acc[newsLetter.site]) {
-                acc[newsLetter.site] = [];
-            }
-            acc[newsLetter.site].push(newsLetter);
-            return acc;
-        }, {} as Record<string, NewsLetter[]>);
-    }
+function NewsLetterPage() {
+    const newsLettersBySite = useSelector(getNewsLettersBySite);
     
     return (
         <Stack spacing={8}>
@@ -30,7 +19,7 @@ function NewsLetterPage({newsLetters}: NewsLetterPageProps) {
                     </Text>
                 </CardBody>
             </Card>
-            {Object.entries(groupBySite(newsLetters)).map(([siteName, newsLetters]) => (
+            {Object.entries(newsLettersBySite).map(([siteName, newsLetters]) => (
                 <NewsLetterList key={siteName} siteName={siteName} newsLetters={newsLetters}/>    
             ))}
         </Stack>

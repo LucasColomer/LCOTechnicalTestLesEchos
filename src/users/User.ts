@@ -4,7 +4,7 @@ export class User {
     lastName!: string;
     gender!: string;
     email!: string;
-    subscriptions: [string]|undefined;
+    subscriptions!: string[];
 
     constructor(initialize?: any) {
         if (!initialize) return;

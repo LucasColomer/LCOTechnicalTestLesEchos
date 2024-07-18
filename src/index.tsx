@@ -2,11 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
 import { ChakraProvider } from '@chakra-ui/react';
 import { extendTheme } from "@chakra-ui/react";
 import '@fontsource/merriweather';
 import '@fontsource/source-sans-pro';
+import { Provider } from 'react-redux';
+import { store } from './store';
+import reportWebVitals from './reportWebVitals';
 
 const theme = extendTheme({
   colors: {
@@ -30,11 +32,13 @@ const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
+    <Provider store={store}>
   <React.StrictMode>
-    <ChakraProvider theme={theme}>
-      <App />
-    </ChakraProvider>
+      <ChakraProvider theme={theme}>
+        <App />
+      </ChakraProvider>
   </React.StrictMode>
+    </Provider>
 );
 
 // If you want to start measuring performance in your app, pass a function

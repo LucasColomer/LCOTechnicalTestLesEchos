@@ -8,17 +8,17 @@ const BASE_USERS = new User({
     email: "jamie.doe@example.com",
 })
 
-export const USER_WITH_ONE_SUBSCRIPTION = {
+export const USER_WITH_ONE_SUBSCRIPTION: User = {
     ...BASE_USERS,
     subscriptions: ["RIGHT_1"],
 };
 
-export const USER_WITHOUT_SUBSCRIPTION = {
+export const USER_WITHOUT_SUBSCRIPTION: User = {
     ...BASE_USERS,
     subscriptions: [],
 };
 
-export const USER_WITH_TWO_SUBSCRIPTIONS = {
+export const USER_WITH_TWO_SUBSCRIPTIONS: User = {
     ...BASE_USERS,
     subscriptions: ["RIGHT_1", "RIGHT_2"],
 };
