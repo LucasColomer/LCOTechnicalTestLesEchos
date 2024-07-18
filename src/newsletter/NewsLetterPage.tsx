@@ -31,7 +31,7 @@ function NewsLetterPage({newsLetters}: NewsLetterPageProps) {
                 </CardBody>
             </Card>
             {Object.entries(groupBySite(newsLetters)).map(([siteName, newsLetters]) => (
-                <NewsLetterList siteName={siteName} newsLetters={newsLetters}/>    
+                <NewsLetterList key={siteName} siteName={siteName} newsLetters={newsLetters}/>    
             ))}
         </Stack>
 );

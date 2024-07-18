@@ -7,8 +7,9 @@ import { MockNewsLetters } from './newsletter/models/MockNewsLetters';
 
 
 function App() {
+  
   return (
-    <Box maxW="960px" mx="auto" paddingTop={4}>
+    <Box maxW="960px" mx="auto" paddingBlock={4}>
       <NewsLetterPage newsLetters={MockNewsLetters}/>
     </Box>
   );
