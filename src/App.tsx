@@ -1,25 +1,16 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import {
+  Box,
+} from '@chakra-ui/react';
+import NewsLetterPage from './newsletter/NewsLetterPage';
+import { MockNewsLetters } from './newsletter/models/MockNewsLetters';
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Box maxW="960px" mx="auto" paddingTop={4}>
+      <NewsLetterPage newsLetters={MockNewsLetters}/>
+    </Box>
   );
 }
 

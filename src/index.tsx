@@ -3,13 +3,37 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ChakraProvider } from '@chakra-ui/react';
+import { extendTheme } from "@chakra-ui/react";
+import '@fontsource/merriweather';
+import '@fontsource/source-sans-pro';
+
+const theme = extendTheme({
+  colors: {
+    primary: {
+      500: "#B00005",
+    },
+    yellow: {
+      500: "#FAEC70"
+    },
+    neutral: {
+      microContrast: "#F4F4F4",
+    }
+  },
+  fonts: {
+    heading: "Merriweather",
+    body: "Source Sans Pro",
+  },
+})
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <ChakraProvider theme={theme}>
+      <App />
+    </ChakraProvider>
   </React.StrictMode>
 );
 
